@@ -14,12 +14,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintVertical_bias="0.038"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_title_detail"
         android:layout_width="250dp"
-        android:layout_height="56dp"
+        android:layout_height="29dp"
         android:layout_marginTop="12dp"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,11 +32,12 @@
 
     <RatingBar
         android:id="@+id/rb_rating_detail"
-        android:layout_width="251dp"
-        android:layout_height="48dp"
+        android:layout_width="242dp"
+        android:layout_height="47dp"
         android:layout_marginTop="12dp"
         android:numStars="5"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:theme="@style/CustomRatingBar"
+        app:layout_constraintBottom_toTopOf="@+id/tv_overview_detail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,15 +46,13 @@
 
     <TextView
         android:id="@+id/tv_overview_detail"
-        android:layout_width="361dp"
-        android:layout_height="235dp"
-        android:layout_marginTop="144dp"
+        android:layout_width="372dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="120dp"
+        android:autoSizeTextType="uniform"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_poster_detail"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_poster_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

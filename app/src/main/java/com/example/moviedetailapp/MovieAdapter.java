@@ -15,6 +15,7 @@ import com.example.moviedetailapp.models.popularMovieModel.Result;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import static com.example.moviedetailapp.network.Constants.POSTER_PATH;
 
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.myViewHolder> {
@@ -45,7 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.myViewHolder
 
             holder.ratingItem.setRating(voteAverage);
             holder.titleItem.setText(result.getTitle());
-            Picasso.get().load("https://image.tmdb.org/t/p/w185/" + result.getPosterPath()).into(holder.posterItem);
+            Picasso.get().load(POSTER_PATH + result.getPosterPath()).into(holder.posterItem);
             holder.bind(result);
         }
     }
