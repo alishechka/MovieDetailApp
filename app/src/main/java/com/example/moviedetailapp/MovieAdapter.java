@@ -14,6 +14,9 @@ import com.example.moviedetailapp.models.popularMovieModel.PopularMovieModel;
 import com.example.moviedetailapp.models.popularMovieModel.Result;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+import static com.example.moviedetailapp.network.Constants.POSTER_PATH;
+
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.myViewHolder> {
     private PopularMovieModel popularMovieModels;
@@ -34,19 +37,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.myViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        Result result = popularMovieModels.getResults().get(position);
+        List<Result> resultList = popularMovieModels.getResults();
+        Result result = null;
+        if (position < resultList.size()) {
+            result = popularMovieModels.getResults().get(position);
 
-        float voteAverage = result.getVoteAverage().floatValue() / 2;
-        holder.ratingItem.setRating(voteAverage);
-        holder.titleItem.setText(result.getTitle());
-        Picasso.get().load("https://image.tmdb.org/t/p/w185/"+result.getPosterPath()).into(holder.posterItem);
-        holder.bind(result);
+            float voteAverage = result.getVoteAverage().floatValue() / 2;
 
+            holder.ratingItem.setRating(voteAverage);
+            holder.titleItem.setText(result.getTitle());
+            Picasso.get().load(POSTER_PATH + result.getPosterPath()).into(holder.posterItem);
+            holder.bind(result);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return popularMovieModels.getTotalResults();
+        return popularMovieModels.getResults().size();
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
@@ -62,17 +69,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.myViewHolder
             ratingItem = itemView.findViewById(R.id.rb_rating_item);
         }
 
+
         public void bind(final Result result) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onItemClick.onClick(result);
-
-
-
-
                 }
             });
         }
     }
+
 }
