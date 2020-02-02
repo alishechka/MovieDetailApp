@@ -1,6 +1,7 @@
 package com.example.moviedetailapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class MovieDetailActivity extends AppCompatActivity {
     private ImageView poster;
     private TextView title, overview;
     private RatingBar rating;
+    private static final String TAG = "MovieDetailActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                 title.setText(detailMovieModel.getTitle());
                 overview.setText(detailMovieModel.getOverview());
-                float voteAverage = detailMovieModel.getVoteAverage().floatValue() / 2;
+                float voteAverage = detailMovieModel.getVoteAverage() / 2;
                 rating.setRating(voteAverage);
                 Picasso.get().load(POSTER_PATH + detailMovieModel
                         .getPosterPath()).into(poster);
@@ -55,6 +57,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DetailMovieModel> call, Throwable t) {
+                Log.i(TAG, "onFailure: "+t.getMessage());
             }
         });
 
