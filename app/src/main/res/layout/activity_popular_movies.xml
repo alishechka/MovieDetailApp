@@ -8,17 +8,16 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_display"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
+        android:layout_height="682dp"
         android:layout_marginBottom="100px" />
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="400px"
-        android:layout_height="100px"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="38dp"
         android:layout_marginBottom="0dp"
         android:text="back"
         tools:layout_editor_absoluteX="16dp"
@@ -26,11 +25,11 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="400px"
-        android:layout_height="100px"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="37dp"
         android:layout_marginBottom="0dp"
         android:text="next"
         tools:layout_editor_absoluteX="16dp"
