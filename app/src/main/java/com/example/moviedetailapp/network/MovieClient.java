@@ -11,7 +11,7 @@ import com.example.moviedetailapp.models.popularMovieModel.PopularMovieModel;
 public interface MovieClient {
 
     @GET("movie/popular?")
-    Call<PopularMovieModel> getPopularMovieRepo(@Query("api_key") String key);
+    Call<PopularMovieModel> getPopularMovieRepo(@Query("api_key") String key, @Query("page") Integer pageNum);
 
     @GET("movie/{movie_id}")
     Call<DetailMovieModel> getDetailMovieRepo(@Path("movie_id") Integer movieId, @Query("api_key") String key);
