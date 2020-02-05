@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviedetailapp.models.popularMovieModel.PopularMovieModel;
 import com.example.moviedetailapp.models.popularMovieModel.Result;
+import com.example.moviedetailapp.moviedetail.MovieDetailActivity;
 import com.example.moviedetailapp.network.MovieClient;
 import com.example.moviedetailapp.network.RetrofitClient;
 
