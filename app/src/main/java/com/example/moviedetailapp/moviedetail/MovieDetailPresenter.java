@@ -27,13 +27,11 @@ public class MovieDetailPresenter implements DetailPresenterInterface {
                 if (response.isSuccessful() && response.body() != null) {
                     DetailMovieModel detailMovieModel = response.body();
                     view.showData(detailMovieModel);
-
                     view.hideProgressBar();
                 } else {
                     view.hideProgressBar();
                     view.showError(response.message());
                 }
-
             }
 
             @Override

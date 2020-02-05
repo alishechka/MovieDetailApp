@@ -55,10 +55,8 @@ public class MovieDetailActivity extends AppCompatActivity implements DetailVewI
                 hideError();
                 showProgressBar();
                 presenter.downloadData(movieID);
-
             }
         });
-
 
     }
 
@@ -94,5 +92,11 @@ public class MovieDetailActivity extends AppCompatActivity implements DetailVewI
     public void hideError() {
         errorContainer.setVisibility(View.GONE);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        presenter.onDestroyCalled();
+        super.onDestroy();
     }
 }
